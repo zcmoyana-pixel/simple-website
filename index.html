@@ -430,10 +430,10 @@
   </div>
   <ul class="nav-links">
     <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-    <li><a onclick="showPage('about-dir')" id="nav-about-dir">About</a></li>
     <li><a onclick="showPage('home','services')" id="nav-services">Services</a></li>
     <li><a onclick="showPage('home','values')" id="nav-values">Values</a></li>
     <li><a onclick="showPage('projects')" id="nav-projects">Projects</a></li>
+    <li><a onclick="showPage('about-dir')" id="nav-about-dir">About</a></li>
     <li><a onclick="showPage('home','contact')" class="nav-cta" id="nav-contact">Contact Us</a></li>
   </ul>
 
@@ -870,17 +870,6 @@
 </div>
 
 <script>
-  function showPage(page) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-    const map = { 'home': ['home-page','nav-home'], 'about-dir': ['about-page','nav-about-dir'], 'projects': ['projects-page','nav-projects'] };
-    if (map[page]) {
-      document.getElementById(map[page][0]).classList.add('active');
-      document.getElementById(map[page][1]).classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }
-
 // ── PAGE ROUTING ────────────────────────────────────────────────────────────
 const PAGE_MAP = {
   'home':     { pageId: 'home-page',     navId: 'nav-home' },
@@ -888,7 +877,7 @@ const PAGE_MAP = {
   'projects': { pageId: 'projects-page', navId: 'nav-projects' }
 };
 
-function showPageAdvanced(page, sectionId) {
+function showPage(page, sectionId) {
   // Hide all pages
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   // Remove all nav active states
